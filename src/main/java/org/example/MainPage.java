@@ -3,6 +3,9 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 //Есть 2 класса MainPage LoginDialogPage ,MainPage это стартовая страница сайта, нужно найти кнопку  окна
 //для открытия логин диалога ,вот метод,который отвечает за нахождение этой кнопки public LoginDialogPage
 // clickSignInButton(){
@@ -25,12 +28,13 @@ public class MainPage {
         //или название класса
         webDriver = driver; //WebDriver это браузер ,для создания класса MainPAge необходимо передать в него WebDriver
     }
-        public LoginDialogPage clickSignInButton(){ //каждый метод возвращается какой то объект в ответ либо
+
+    public LoginDialogPage clickSignInButton() { //каждый метод возвращается какой то объект в ответ либо
         // не возвращает ничего ,тут мы пишем какой тип объекта возвращается
-            WebElement signInButton = webDriver.findElement(By.className("nav-user-img"));//эта строчка находит
-            // nav кнопку на странице ,далее строка делает клик по этой кнопке
-            signInButton.click();
-            return new LoginDialogPage(webDriver);
+        WebElement signInButton = webDriver.findElement(By.className("nav-user-img"));//эта строчка находит
+        // nav кнопку на странице ,далее строка делает клик по этой кнопке
+        signInButton.click();
+        return new LoginDialogPage(webDriver);
     }//т.е этот метод делает клик и при этом создается объект логин диалога,чтобы мы могли с ним взаимодействовать
     //строчка последняя return new LoginDialogPage(webDriver) , return - вернуть, каждый метод,который что то
     // возвращает в конце своей работы заканчивается словом return ,слово new - создает объект ,наш класс диалога
@@ -44,4 +48,14 @@ public class MainPage {
     //LoginDialogPage
     //здесь создавала класс LoginDialogPage писали new ,имя класса ,которым хотим создать
     // и передавали в него этот необходимый для его работы 'ингредиент'
+
+
+    public void clickProfileButton() {
+        List<WebElement> navlist = webDriver.findElements(By.cssSelector(".navbar-nav.navbar-items-solver.me-auto.mb-2.mb-lg-0"));
+        for (WebElement elem : navlist)
+            if (elem.getAttribute("innerHTML").contains("https://thesolver.techoriz.in/en/profile")) {
+                elem.click();
+                break;
+            }
+    }
 }

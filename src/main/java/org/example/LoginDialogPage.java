@@ -7,17 +7,17 @@ import org.openqa.selenium.WebElement;
 public class LoginDialogPage {
 
     public static String EMAIL = "";
-    public static String PASSWORD = ""; //1)пароль и email которые подставим полям email и пароль на сайте
+    public static String PASSWORD = ""; //пароль и email которые подставим полям email и пароль на сайте
 
-    //2)это наш класс webDriver, emailField,passwordField,LoginInButton? это локальные переменные ,которым мы назначаем
+    //2)это  класс webDriver, emailField,passwordField,LoginInButton? это локальные переменные ,которым мы назначаем
     //наши поля с диалога окна , т.е создаю переменную с именем logInButton
     private WebDriver webDriver;
     private WebElement emailField;
     private WebElement passwordField;//вот она объявляется в коде и тип этой переменной WebElement(тип)
     // т.е это любой элемент на сайте, тип может быть - WebElement,string, int.
-    private WebElement logInButton;//вот она объявляется в коде и тип этой переменной LogIButton
+    private WebElement logInButton;// переменная logInButton, тип этой переменной WebElement
 
-    public LoginDialogPage(WebDriver driver) {//  3) это КОНСТРУКТОР, он нужен для создания объекта ,
+    public LoginDialogPage(WebDriver driver) {// это КОНСТРУКТОР, он нужен для создания объекта ,
         //по сути это тот же метод ,только для инициализации класса, он пишется как и название класса ,
         // в {} скобках в нем создается все необходимые для работы элементы ,в скобках () WebDriver driver - это
         //значит ,что для создания этого класса нужно в него передать объект WebDriver - такой ингридиент для того
